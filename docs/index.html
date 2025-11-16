@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>retoro-sen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-link:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .support-btn {
+            display: inline-block;
+            background: #ffdd00;
+            color: #333;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .support-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .wallet-address {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>retoro-sen</h1>
+            <p class="subtitle">Python, Linux & Open Source Enthusiast</p>
+        </header>
+
+        <section class="projects">
+            <div class="project-card">
+                <h2>🔄 Offdroid - Update Manager</h2>
+                <p>
+                    Ein leistungsstarker Update Manager für Linux und macOS (Homebrew). 
+                    Installiere Updates effizient und sicher mit nur einem Befehl.
+                    Perfekt für Entwickler und Power-User.
+                </p>
+                <a href="https://github.com/retoro-sen/offdroid_update_manager" class="project-link">View on GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h2>📄 myTinyDesk - PDF Reader</h2>
+                <p>
+                    Ein minimalistischer und schneller PDF-Reader für dein Desktop.
+                    Leichtgewichtig, benutzerfreundlich und ohne unnötige Features.
+                    Einfach PDFs öffnen und lesen.
+                </p>
+                <a href="https://github.com/retoro-sen/myTinyDesk_pdfreader" class="project-link">View on GitHub</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>📧 Contact Me</h3>
+                <p>
+                    <a href="mailto:retoro-sen@protonmail.ch">retoro-sen@protonmail.ch</a>
+                </p>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>₿ Bitcoin Donation</h3>
+                <p>Support via Bitcoin:</p>
+                <div class="wallet-address">
+                    bc1q40tcmyk8rtp5vyg4ykgexa0upcvd08l99dq4z0
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
