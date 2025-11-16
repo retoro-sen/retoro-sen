@@ -31,6 +31,53 @@
             text-align: center;
             padding: 60px 20px;
             color: white;
+            position: relative;
+        }
+
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: #667eea;
+            border-color: white;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-penguin {
+            width: 100px;
+            height: 100px;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
         }
 
         h1 {
@@ -167,23 +214,79 @@
             .projects {
                 grid-template-columns: 1fr;
             }
+
+            .lang-switcher {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .logo-penguin {
+                width: 80px;
+                height: 80px;
+            }
+
+            .header-content {
+                gap: 20px;
+            }
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>retoro-sen</h1>
-            <p class="subtitle">Python, Linux & Open Source Enthusiast</p>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('de')">DE</button>
+                <button class="lang-btn" onclick="switchLang('en')">EN</button>
+            </div>
+            <div class="header-content">
+                <svg class="logo-penguin" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Penguin body -->
+                    <rect x="10" y="8" width="12" height="16" fill="#2C3E50"/>
+                    <!-- White belly -->
+                    <rect x="12" y="10" width="8" height="12" fill="#ECF0F1"/>
+                    <!-- Head -->
+                    <rect x="11" y="4" width="10" height="6" fill="#2C3E50"/>
+                    <!-- Eyes -->
+                    <rect x="13" y="6" width="2" height="2" fill="#FFFFFF"/>
+                    <rect x="17" y="6" width="2" height="2" fill="#FFFFFF"/>
+                    <!-- Eye pupils -->
+                    <rect x="14" y="7" width="1" height="1" fill="#2C3E50"/>
+                    <rect x="18" y="7" width="1" height="1" fill="#2C3E50"/>
+                    <!-- Beak -->
+                    <rect x="15" y="8" width="2" height="1" fill="#F39C12"/>
+                    <!-- Feet -->
+                    <rect x="11" y="24" width="3" height="2" fill="#F39C12"/>
+                    <rect x="18" y="24" width="3" height="2" fill="#F39C12"/>
+                    <!-- Wings -->
+                    <rect x="8" y="12" width="2" height="6" fill="#2C3E50"/>
+                    <rect x="22" y="12" width="2" height="6" fill="#2C3E50"/>
+                </svg>
+                <div>
+                    <h1>retoro-sen</h1>
+                    <p class="subtitle" data-de="Python, Linux & Open Source Enthusiast" data-en="Python, Linux & Open Source Enthusiast">Python, Linux & Open Source Enthusiast</p>
+                </div>
+            </div>
         </header>
 
         <section class="projects">
             <div class="project-card">
                 <h2>🔄 Offdroid - Update Manager</h2>
-                <p>
+                <p class="lang-de">
                     Ein leistungsstarker Update Manager für Linux und macOS (Homebrew). 
                     Installiere Updates effizient und sicher mit nur einem Befehl.
                     Perfekt für Entwickler und Power-User.
+                </p>
+                <p class="lang-en hidden">
+                    A powerful update manager for Linux and macOS (Homebrew). 
+                    Install updates efficiently and securely with just one command.
+                    Perfect for developers and power users.
                 </p>
                 <div class="project-buttons">
                     <a href="https://github.com/retoro-sen/offdroid_update_manager" class="project-link">View on GitHub</a>
@@ -193,10 +296,15 @@
 
             <div class="project-card">
                 <h2>📄 myTinyDesk - PDF Reader</h2>
-                <p>
+                <p class="lang-de">
                     Ein minimalistischer und schneller PDF-Reader für dein Desktop.
                     Leichtgewichtig, benutzerfreundlich und ohne unnötige Features.
                     Einfach PDFs öffnen und lesen.
+                </p>
+                <p class="lang-en hidden">
+                    A minimalist and fast PDF reader for your desktop.
+                    Lightweight, user-friendly and without unnecessary features.
+                    Simply open and read PDFs.
                 </p>
                 <div class="project-buttons">
                     <a href="https://github.com/retoro-sen/myTinyDesk_pdfreader" class="project-link">View on GitHub</a>
@@ -209,7 +317,8 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>📧 Contact Me</h3>
+                <h3 class="lang-de">📧 Kontakt</h3>
+                <h3 class="lang-en hidden">📧 Contact Me</h3>
                 <p>
                     <a href="mailto:retoro-sen@protonmail.ch">retoro-sen@protonmail.ch</a>
                 </p>
@@ -218,12 +327,34 @@
 
             <div class="footer-section">
                 <h3>₿ Bitcoin Donation</h3>
-                <p>Support via Bitcoin:</p>
+                <p class="lang-de">Unterstütze mich mit Bitcoin:</p>
+                <p class="lang-en hidden">Support via Bitcoin:</p>
                 <div class="wallet-address">
                     bc1q40tcmyk8rtp5vyg4ykgexa0upcvd08l99dq4z0
                 </div>
             </div>
         </div>
+        <div style="text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+            <p>© 2025 retoro-sen | Version 1.0.0</p>
+        </div>
     </footer>
+
+    <script>
+        function switchLang(lang) {
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (lang === 'de') {
+                document.querySelectorAll('.lang-de').forEach(el => el.classList.remove('hidden'));
+                document.querySelectorAll('.lang-en').forEach(el => el.classList.add('hidden'));
+                document.documentElement.lang = 'de';
+            } else {
+                document.querySelectorAll('.lang-de').forEach(el => el.classList.add('hidden'));
+                document.querySelectorAll('.lang-en').forEach(el => el.classList.remove('hidden'));
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
 </body>
 </html>
